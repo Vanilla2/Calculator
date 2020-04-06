@@ -46,8 +46,8 @@ main.addEventListener('click', function(event) {
         }
         else{
             log.innerText += "=";
-            if (log.innerText.length == 45)
-                log.innerText = "";
+            if (log.innerText.length >=32)
+            log.innerText = "";
             indx = 0;
             if (sign == "/")
                 num[0] = num[0] / num[1];
