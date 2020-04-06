@@ -1,3 +1,7 @@
+.log{
+    color: white;
+    padding-top: 45px;
+}
 .title{
     font-size: 30px;
     font-family: monospace;
@@ -13,6 +17,7 @@
     text-align: right;
     padding-top: 45px;
     font-size: 50px;
+    height: 10px;
 }
 .digit-button{
     background-color: #d8d9db;

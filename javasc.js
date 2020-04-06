@@ -1,5 +1,6 @@
 const main = document.querySelectorAll('.calc')[0];
 const result = document.querySelector('.result');
+const log = document.querySelector('.log');
 num = [0, 0];
 let indx = 0;
 let sign = "";
@@ -13,6 +14,7 @@ main.addEventListener('click', function(event) {
             num[0] = 0;
             num[1] = 0;
             indx = 0;
+            log.innerText = "";
     }
     else if (pressed === "←"){
         if (result.innerText.length != 1){
@@ -28,9 +30,11 @@ main.addEventListener('click', function(event) {
         num[indx] = num[indx] * 10 + parseInt(pressed);
         if (result.innerText === "0"){
             result.innerText = pressed;
+            log.innerText +=pressed;
         }
         else{
             result.innerText +=pressed;
+            log.innerText +=pressed;
         }
     }
     else if (pressed == "/" || pressed == "x" || pressed == "-" || pressed == "+" || pressed == "="){
@@ -38,8 +42,12 @@ main.addEventListener('click', function(event) {
             indx = 1;
             sign = pressed;
             result.innerText = "";
+            log.innerText +=pressed;
         }
         else{
+            log.innerText += "=";
+            if (log.innerText.length == 45)
+                log.innerText = "";
             indx = 0;
             if (sign == "/")
                 num[0] = num[0] / num[1];
@@ -51,6 +59,7 @@ main.addEventListener('click', function(event) {
                 num[0] = num[0] + num[1];
             num[1] = 0;
             result.innerText = num[0].toString(10);
+            log.innerText +=num[0].toString(10);
         }
     }
   });
